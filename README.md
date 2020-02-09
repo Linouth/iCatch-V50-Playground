@@ -14,6 +14,7 @@ Any contribution on reversing this system is greatly appreciated.
 
 ### Unbricking
 [*Thanks to DrekiTech on GoPrawn*](https://www.goprawn.com/forum/sunplus-cams/5859-sunplus-v50-soc?p=9886#post9886)
+*This does not work on the Akaso V50 Pro. It doesn't go into 'debug mode' with these steps.*
 
 ```
 In order to enter debug mode, the following steps must be performed:
