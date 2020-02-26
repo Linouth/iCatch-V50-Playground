@@ -3,6 +3,7 @@ Some pictures taken of the inside of my Akaso V50 Pro SE.
 ![Inside front](front.jpg)
 
 ![V50M SoC](V50M.jpg)
+UART interface is at the top right of this image.
 
 ![Realtek module](realtek.jpg)
 For wifi/bluetooth the device uses some realtek module. Couldn't read which chip exactly.
