@@ -6,7 +6,7 @@ Some pictures taken of the inside of my Akaso V50 Pro SE.
 UART interface is at the top right of this image.
 
 ![Realtek module](realtek.jpg)
-For wifi/bluetooth the device uses some realtek module. Couldn't read which chip exactly.
+For wifi/bluetooth the device uses some realtek module. Couldn't quite read which chip exactly.
 
 ![Unknown chip](unknown_chip.jpg)
 [Pretty sure this is used for the RF remote](https://commons.wikimedia.org/wiki/File:Revell_Control_Helicopter_Glowee_2.0_-_controller_-_XN297LBW-7369.jpg)

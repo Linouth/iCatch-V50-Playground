@@ -7,10 +7,11 @@ Any contribution on reversing this system is greatly appreciated.
 ### Interesting links:
 * [Info about SPHOST.BRN file](https://www.goprawn.com/forum/sunplus-cams/10333-icatch-sunplus-firmware-hacks)
 * [FRM Program](https://www.goprawn.com/forum/sunplus-cams/748-hack-mod-eken-h9-firmware-using-frm)
-* [Some reversing of this chipset (mainly the linux part)](https://github.com/mheistermann/spca-fun)
-    * [Corresponding talk (The parts I understood were very interesting :P)](https://www.youtube.com/watch?v=BEGNcjkg2Tw)
+* [Some reversing of a similar chipset](https://github.com/mheistermann/spca-fun)
+    * [Corresponding talk](https://www.youtube.com/watch?v=BEGNcjkg2Tw)
 * [Official firmware download, from akaso](http://akaso.net/firmware/AKASO_V50_Pro_20180802_V4.rar)
 * [Unofficial firmware repo (Thanks to Petesimon on GoPrawn)](https://my.pcloud.com/publink/show?code=GDkrtalK)
+* [More firmwares](https://yadi.sk/d/JoxghlhkrNNBkw)
 
 
 ### Unbricking
