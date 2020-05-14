@@ -35,6 +35,12 @@ and the VikCam firmware for most of this information.
 - offset6, drampara-ddr.prm, is mapped to `0x47ff0000`
 
 
+## Ghidra
+`offset3.gzf` contains my current progress at reversing the main firmware.
+Functions with a `?` are not 100% certain, and functions with a `!` can be
+interesting and need more thorough look.
+
+
 ## Contents of the FAT images
 offset2 contains two FAT partitions, `A` starting at offset `0x120`, and `B` 
 starting at `0x500120`. Linux can mount these partitions as loop devices.
