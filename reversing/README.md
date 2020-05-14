@@ -30,8 +30,8 @@ and the VikCam firmware for most of this information.
 
 
 ## Memory mapping
-- offset0, the bootloader, is mapped to `0x4004000`
-- offset3, the firmware, is mapped to `0x4000000`
+- offset0, the bootloader, is mapped to `0x40040000`
+- offset3, the firmware, is mapped to `0x40000000`
 - offset6, drampara-ddr.prm, is mapped to `0x47ff0000`
 
 
