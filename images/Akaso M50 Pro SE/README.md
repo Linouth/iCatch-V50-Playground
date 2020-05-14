@@ -15,4 +15,4 @@ Update: Yes, the XN297LBW is a RF chip in the range of 2.400~2.483GHz. [source](
 ![Inside back](back.jpg)
 
 ![SPI Flash chip](spi_flash.jpg)
-A Winbond flash chip. A dump of the chip can be found here: https://github.com/Linouth/iCatch-V50-Playground/blob/master/fw/v50ProSE/winbond_dump.bin
+A Winbond flash chip. A dump of the chip can be found in the reversing folder
