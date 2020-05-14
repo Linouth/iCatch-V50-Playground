@@ -5,8 +5,7 @@ other iCatch v50 devices but I am not sure.
 
 ## Updating the CRC checksum
 The checksum is stored at offset 0x1FC of the `SPHOST.BRN` file. This checksum 
-can be updated by running `sumpatch.exe (SPHOST.BRN|firmware.bin) 508`
-(untested).
+can be updated by running `sumpatch.exe (SPHOST.BRN|firmware.bin) 508`.
 
 However, on the v50Pro SE, flashing of the firmware does not stop if the 
 checksum is incorrect, so patching it is not required. 
