@@ -56,6 +56,14 @@ with open(filename, 'rb') as f:
         length, _, _, entries = struct.unpack('<IHHH', header[0x26:0x30])
         # length = length - 6 + 0x30
 
+        with open('out.bin', 'wb') as outf:
+            while True:
+                data = rawdata.read(1024)
+                if data == b'':
+                    break
+                outf.write(data)
+            rawdata.seek(0)
+
         print(length, entries)
         
         data = []
@@ -66,6 +74,7 @@ with open(filename, 'rb') as f:
 
         for e in data:
             print(e.decode('utf-16'))
+        print(len(data))
 
     elif magic == b'SPFN':
         data = read_data(f, 0x36)
