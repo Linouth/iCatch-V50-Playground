@@ -10,8 +10,6 @@ can be updated by running `sumpatch.exe (SPHOST.BRN|firmware.bin) 508`.
 However, on the v50Pro SE, flashing of the firmware does not stop if the 
 checksum is incorrect, so patching it is not required. 
 
-Taken from `frm_base.ini` in the VikCam firmware.
-
 ## Carving
 The script `carve.py` accepts any SPHOST.BRN file and carves out the different 
 parts defined by the header. The script names these parts as `offsetX`, and I 
@@ -41,10 +39,11 @@ Functions with a `?` are not 100% certain, and functions with a `!` can be
 interesting and need more thorough look.
 
 
-## Contents of the FAT images
+## The FAT images
 offset2 contains two FAT partitions, `A` starting at offset `0x120`, and `B` 
 starting at `0x500120`. Linux can mount these partitions as loop devices.
 
+### Contents
 The A image is a FAT16 partition. It contains most of the data used by the 
 camera, such as config files, images, audio files, calibration data, etc.
 Many files have a `SFN` or `SST` format. These files are compressed using 
@@ -57,10 +56,27 @@ for wifi.
 The files A\_contents.txt and B\_contents.txt list the contents of these 
 partitions.
 
+### Modifying the partitions
+To change the contents of the FAT partitions, you first have to carve the
+firmware using `carve.py SPHOST.BRN`.
+Changing the FAT partitions is fairly easy. Just follow the following steps
+1. Carve the firmware using `carve.py SPHOST.BRN`
+2. Mount the FAT image with `mount -o loop,rw offset2.A <dir>`
+3. You can now access and modify the image.
+4. Unmount the image: `umount <dir>`
+5. build a new SPHOST.BRN file using `combine.sh`
+That should work.
+
+I have been able to change system icons, boot images and sounds. There are also
+plenty of configuration and callibration files which I am not sure of what they
+do. They might be very interesting to play with. Any help with working this out
+is highly appreciated. 
+
 
 ## Todo
-- [ ] Update `carve.py` to also carve out the fat partitions, and the headers
+- [x] Update `carve.py` to also carve out the fat partitions, and the headers
 - [ ] Create better tool to combine all parts into a new SPHOST file
 - [ ] Create tool to compress files back into SFN and SST format
 - [ ] Modify firmware so that the callibration files are loaded from the SD card
-(C) instead of from image A
+(C) instead of image A
+- [ ] Modify firmware to intercept received messages so I can analyse them

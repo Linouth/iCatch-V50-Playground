@@ -1,4 +1,10 @@
 #!/bin/python
+'''
+As of now, this script parses just extracted SST and SFN files
+The goal is to be able to extract and decompres any SST / SFN file, which you 
+can then modify. Then recompress the file you it can be included in the FAT
+image.
+'''
 
 '''
 SST and SFN files follow this format:

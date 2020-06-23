@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="SPHOST_header offset0 offset1 offset2 offset3 offset5 offset6"
+files="SPHOST.header offset0 offset1 offset2.header offset2.A offset2.B offset3 offset5 offset6"
 outfile="SPHOST.BRN.new"
 
 if [[ -z "$1" ]]; then
@@ -10,7 +10,6 @@ else
     files="$@"
 fi
 
-# files="SPHOST_header offset0 offset1 offset2_header offset2.fat offset3 offset5 offset6"
 echo "Combining $files"
 
 [ -e "$outfile" ] && rm "$outfile"
