@@ -58,11 +58,11 @@ partitions.
 
 ### Modifying the partitions
 Changing the FAT partitions is fairly easy. Just follow these steps:
-1. Carve the firmware using `carve.py SPHOST.BRN`
+1. Carve the firmware using `carve.py carve SPHOST.BRN`
 2. Mount the FAT image with `mount -o loop,rw offset2.A <dir>`
 3. You can now access and modify the image.
 4. Unmount the image: `umount <dir>`
-5. build a new SPHOST.BRN file using `combine.sh`
+5. build a new SPHOST.BRN file using `carve.py combine`
 
 That should work.
 
@@ -70,6 +70,11 @@ I have been able to change system icons, boot images and sounds. There are also
 plenty of configuration and callibration files which I am not sure of what they
 do. They might be very interesting to play with. Any help with working this out
 is highly appreciated. 
+
+The SST and SFN files can be modified by first decompressing them using
+`compression.py decompress <infolder> <outfolder>`, modifying the files, and
+then compressing them again using `compression.py compress <infolder>
+<outfolder>`.
 
 
 ## Todo

@@ -1,3 +1,5 @@
+#!/bin/python
+
 import pathlib
 import sys
 import snappy
