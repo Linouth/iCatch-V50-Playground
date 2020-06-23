@@ -57,14 +57,13 @@ The files A\_contents.txt and B\_contents.txt list the contents of these
 partitions.
 
 ### Modifying the partitions
-To change the contents of the FAT partitions, you first have to carve the
-firmware using `carve.py SPHOST.BRN`.
-Changing the FAT partitions is fairly easy. Just follow the following steps
+Changing the FAT partitions is fairly easy. Just follow these steps:
 1. Carve the firmware using `carve.py SPHOST.BRN`
 2. Mount the FAT image with `mount -o loop,rw offset2.A <dir>`
 3. You can now access and modify the image.
 4. Unmount the image: `umount <dir>`
 5. build a new SPHOST.BRN file using `combine.sh`
+
 That should work.
 
 I have been able to change system icons, boot images and sounds. There are also
