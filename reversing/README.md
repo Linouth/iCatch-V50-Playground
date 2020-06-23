@@ -74,8 +74,9 @@ is highly appreciated.
 
 ## Todo
 - [x] Update `carve.py` to also carve out the fat partitions, and the headers
-- [ ] Create better tool to combine all parts into a new SPHOST file
-- [ ] Create tool to compress files back into SFN and SST format
+- [x] Create better tool to combine all parts into a new SPHOST file
+- [x] Create tool to compress files back into SFN and SST format
 - [ ] Modify firmware so that the callibration files are loaded from the SD card
 (C) instead of image A
 - [ ] Modify firmware to intercept received messages so I can analyse them
+- [ ] Create wrapper script to wrap all scripts with a proper cli
