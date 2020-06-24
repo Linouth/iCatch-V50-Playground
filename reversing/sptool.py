@@ -48,17 +48,17 @@ class SPTool(object):
     def combine(self):
         parser = argparse.ArgumentParser(description=self.combine.help)
 
-        parser.add_argument('-f', '--filenames', required=True,
+        parser.add_argument('-f', '--filenames',
                 help='Filenames of chunks to combine, in the correct order. '
                 f'Default: {sptool.carve.DEFAULT_FILES}',
                 default=None)
-        parser.add_argument('-d', '--dir', required=True,
-                help='Directory where chunks are located', default=None)
-        parser.add_argument('-o', '--outfile', required=True,
-                help='File to write firmware to', default=None)
+        parser.add_argument('-d', '--dir',
+                help='Directory where chunks are located. '\
+                        'Default is current directory', default='./')
+        parser.add_argument('outfile', help='File to write firmware to')
 
         args = parser.parse_args(sys.argv[2:])
-        sptool.carve.combine_firmware(args.outfile, args.files, args.dir)
+        sptool.carve.combine_firmware(args.outfile, args.filenames, args.dir)
         return
     combine.help = 'Combine carved chunks back into a firmware file.'
 

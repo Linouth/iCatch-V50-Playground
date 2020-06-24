@@ -71,6 +71,12 @@ def compress_helper(in_dir: str, out_dir: str, dec=False):
     for path in in_dir.glob('**/*'):
         relpath = path.relative_to(in_dir)
 
+        # If path is directory, create it in out_dir and continue
+        if path.is_dir():
+            (out_dir / relpath).mkdir(exist_ok=True)
+            continue
+
+        # If path is a file
         with open(path, 'rb') as infile:
 
             # If file is to be decompressed:
