@@ -28,7 +28,7 @@ However, on the v50Pro SE, flashing of the firmware does not stop if the
 checksum is incorrect, so patching it is not required. 
 
 ## Carving
-The script `carve.py` accepts any SPHOST.BRN file and carves out the different 
+The command `sphost.py carve <file>` accepts any SPHOST.BRN file and carves out the different 
 parts defined by the header. The script names these parts as `offsetX`, and I 
 refer to them as such. The file contains the following parts:
 
@@ -78,12 +78,12 @@ Changing the FAT partitions is fairly easy. Just follow these steps:
 1. Carve the firmware using `sptool.py carve SPHOST.BRN`
 2. Mount the FAT image with `mount -o loop,rw offset2.A <mount_dir>`
 3. If you want to modify SST or SFN files, you need to decompress them. Run
-   `sptool.py decompress -i<mount_dir> -o <decompressed_dir>`
+   `sptool.py decompress <mount_dir> <decompressed_dir>`
 4. You can now access and modify the files.
 5. If you decompressed the SST and SFN files, you need to recompress the files.
-   To do this, run `sptool.py compress -i <decompressed_dir> -o <mount_dir>`
-4. Unmount the image: `umount <mount_dir>`
-5. build a new SPHOST.BRN file using `sptool.py combine` in the directory where
+   To do this, run `sptool.py compress <decompressed_dir> <mount_dir>`
+6. Unmount the image: `umount <mount_dir>`
+7. build a new SPHOST.BRN file using `sptool.py combine` in the directory where
    all offsets are extracted
 
 That should work.
@@ -94,9 +94,8 @@ do. They might be very interesting to play with. Any help with working this out
 is highly appreciated. 
 
 The SST and SFN files can be modified by first decompressing them using
-`compression.py decompress <infolder> <outfolder>`, modifying the files, and
-then compressing them again using `compression.py compress <infolder>
-<outfolder>`.
+`sptool.py decompress <infolder> <outfolder>`, modifying the files, and
+then compressing them again using `sptool.py compress <infolder> <outfolder>`.
 
 
 ## Todo
@@ -104,7 +103,8 @@ then compressing them again using `compression.py compress <infolder>
 - [x] Create better tool to combine all parts into a new SPHOST file
 - [x] Create tool to compress files back into SFN and SST format
 - [ ] Modify firmware so that the callibration files are loaded from the SD card
-(C) instead of image A
+  (C) instead of image A
 - [ ] Modify firmware to intercept received messages so I can analyse them
 - [x] Create wrapper script to wrap all scripts with a proper cli
 - [ ] Reverse sumpatch.exe and add CRC calculation to sptool.py
+- [ ] Parse SST and SFN files into easy to work work with text files

@@ -65,9 +65,9 @@ class SPTool(object):
     def compress(self):
         parser = argparse.ArgumentParser(description=self.compress.help)
 
-        parser.add_argument('-i', '--indir', required=True,
+        parser.add_argument('indir',
                 help='Directory with SST and SFN files to compress')
-        parser.add_argument('-o', '--outdir', required=True,
+        parser.add_argument('outdir',
                 help='Directory to save newly compressed files')
 
         args = parser.parse_args(sys.argv[2:])
@@ -79,9 +79,9 @@ class SPTool(object):
     def decompress(self):
         parser = argparse.ArgumentParser(description=self.decompress.help)
 
-        parser.add_argument('-i', '--indir', required=True,
+        parser.add_argument('indir',
                 help='Directory with SST and SFN files to decompress')
-        parser.add_argument('-o', '--outdir', required=True,
+        parser.add_argument('outdir',
                 help='Directory to save newly decompressed files')
 
         args = parser.parse_args(sys.argv[2:])
