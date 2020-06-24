@@ -2,6 +2,23 @@ This documents serves as a notebook for anything interesting I find during
 analysis of the Akaso v50 Pro SE firmare. Most of this probably applies to 
 other iCatch v50 devices but I am not sure.
 
+## sptool.py
+```
+usage: sptool.py [-h] command
+
+SunPlus firmware utility
+
+positional arguments:
+  command     Available commands are:
+              carve       	Carve firmware file into separate chunks and extract A and B partitions.
+              clean       	Delete all carved files (or the files in --files)
+              combine     	Combine carved chunks back into a firmware file.
+              compress    	Compress all SST and SFN files in a specified folder. Also copies any other file to the new directory.
+              decompress  	Decompress all SST and SFN files in the specified folder. Also copies any other file to the new directory.
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
 
 ## Updating the CRC checksum
 The checksum is stored at offset 0x1FC of the `SPHOST.BRN` file. This checksum 
@@ -58,11 +75,16 @@ partitions.
 
 ### Modifying the partitions
 Changing the FAT partitions is fairly easy. Just follow these steps:
-1. Carve the firmware using `carve.py carve SPHOST.BRN`
-2. Mount the FAT image with `mount -o loop,rw offset2.A <dir>`
-3. You can now access and modify the image.
-4. Unmount the image: `umount <dir>`
-5. build a new SPHOST.BRN file using `carve.py combine`
+1. Carve the firmware using `sptool.py carve SPHOST.BRN`
+2. Mount the FAT image with `mount -o loop,rw offset2.A <mount_dir>`
+3. If you want to modify SST or SFN files, you need to decompress them. Run
+   `sptool.py decompress -i<mount_dir> -o <decompressed_dir>`
+4. You can now access and modify the files.
+5. If you decompressed the SST and SFN files, you need to recompress the files.
+   To do this, run `sptool.py compress -i <decompressed_dir> -o <mount_dir>`
+4. Unmount the image: `umount <mount_dir>`
+5. build a new SPHOST.BRN file using `sptool.py combine` in the directory where
+   all offsets are extracted
 
 That should work.
 
@@ -84,4 +106,5 @@ then compressing them again using `compression.py compress <infolder>
 - [ ] Modify firmware so that the callibration files are loaded from the SD card
 (C) instead of image A
 - [ ] Modify firmware to intercept received messages so I can analyse them
-- [ ] Create wrapper script to wrap all scripts with a proper cli
+- [x] Create wrapper script to wrap all scripts with a proper cli
+- [ ] Reverse sumpatch.exe and add CRC calculation to sptool.py

@@ -213,6 +213,27 @@ def combine_firmware(outfile='SPHOST.BRN', files=None, directory='./'):
                 break
 
 
+def clean(files=None):
+    f'''Delete all carved out files
+
+    Parameters
+    ----------
+    files : list(str)
+        List of files to delete. Defaults to {DEFAULT_FILES}
+    '''
+    if not files:
+        files = DEFAULT_FILES
+
+    for f in files:
+        try:
+            os.remove(f)
+            print(f'Removing {f}.')
+        except FileNotFoundError:
+            print(f'{f} already gone')
+            pass
+    print('Done.')
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print(f'Usage: {sys.argv[0]} (carve|combine) file [file2 file3 ...]')

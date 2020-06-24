@@ -2,3 +2,6 @@
 
 fw/**/
 drivers/*/
+
+**/__pycache__/
+*.pyc
